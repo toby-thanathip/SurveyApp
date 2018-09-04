@@ -6,12 +6,13 @@ import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
+import retrofit2.http.Header
 import retrofit2.http.Query
 
 interface SurveyApiService {
 
     @GET("surveys.json")
-    fun get(@Query("page") page: Int, @Query("per_page") perPage: Int): Observable<SurveyResult>
+    fun getSurveys(@Header("Authorization") acces_token: String, @Query("page") page: Int, @Query("per_page") perPage: Int): Observable<List<SurveyResult>>
 
     companion object Factory {
         val base_url = "https://nimbl3-survey-api.herokuapp.com/"
