@@ -1,7 +1,8 @@
-package nimbl3.surveyapp
+package nimbl3.surveyapp.controller
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import nimbl3.surveyapp.R
 
 class MainActivity : AppCompatActivity() {
 
