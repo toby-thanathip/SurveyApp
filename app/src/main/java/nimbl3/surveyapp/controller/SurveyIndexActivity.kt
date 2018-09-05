@@ -28,8 +28,6 @@ class SurveyIndexActivity : AppCompatActivity() {
 
 //       TODO ONLY GENERATE NEW TOKEN IF EXPIRED
 //       TODO SENSITIVE DATA
-//       TODO USE PICASSO FOR IMAGES
-
         apiService.getToken("password", "carlos@nimbl3.com", "antikera")
                 .flatMap { result ->
                     apiService.getSurveys("Bearer ${result.access_token}", 1,20)
