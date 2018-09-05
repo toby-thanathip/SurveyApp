@@ -22,6 +22,7 @@ class SurveyFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         view.findViewById<TextView>(R.id.survey_title).text = arguments!!.getString("title")
+        view.findViewById<TextView>(R.id.survey_description).text = arguments!!.getString("description")
 
         Glide.with(this)
              .load(arguments!!.getString("background"))
@@ -32,6 +33,7 @@ class SurveyFragment : Fragment() {
         fun newInstance(survey: Survey): SurveyFragment {
             val args = Bundle()
             args.putString("title", survey.title)
+            args.putString("description", survey.description)
             args.putString("background", survey.cover_image_url + "l")
             val surveyFragment = SurveyFragment()
             surveyFragment.arguments = args
