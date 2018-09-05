@@ -2,6 +2,7 @@
 <resources>
     <color name="colorPrimary">#252525</color>
     <color name="colorPrimaryDark">#252525</color>
+    <color name="nimbleDark">#333333</color>
     <color name="colorAccent">#FF4081</color>
     <color name="white">#FFFFFF</color>
 </resources>

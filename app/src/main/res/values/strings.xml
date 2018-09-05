@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">SURVEYS</string>
+    <string name="app_name">Nimbl3</string>
     <string name="survey_background">survey_background</string>
     <string name="take_the_survey">Take the survey</string>
 </resources>
