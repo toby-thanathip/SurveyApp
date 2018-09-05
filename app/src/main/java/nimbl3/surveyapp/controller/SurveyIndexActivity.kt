@@ -5,6 +5,9 @@ import android.os.Bundle
 import android.support.design.widget.TabLayout
 import android.support.v4.view.ViewPager
 import android.util.Log
+import android.view.View.INVISIBLE
+import android.view.View.VISIBLE
+import android.widget.ProgressBar
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import nimbl3.surveyapp.R
@@ -17,7 +20,7 @@ class SurveyIndexActivity : AppCompatActivity() {
     private lateinit var pagerAdapter: SurveysPagerAdapter
     private lateinit var viewPager: ViewPager
     private lateinit var tabLayout: TabLayout
-
+    private lateinit var progressBar : ProgressBar
 
     override fun onCreate(savedInstanceState: Bundle?) {
         setTheme(R.style.AppTheme)
@@ -40,6 +43,7 @@ class SurveyIndexActivity : AppCompatActivity() {
                 .subscribe ({ result ->
                     pagerAdapter = SurveysPagerAdapter(supportFragmentManager, result)
                     viewPager.adapter = pagerAdapter
+                    progressBar.visibility = INVISIBLE
                     Log.d("NIMBL3LOG", "There are ${result.size} surveys")
                 }, { error ->
                     Log.e("NIMBL3LOG", error.toString())
@@ -51,6 +55,8 @@ class SurveyIndexActivity : AppCompatActivity() {
         viewPager = findViewById(R.id.view_pager)
         tabLayout = findViewById(R.id.tab_layout)
         tabLayout.setupWithViewPager(viewPager, true)
+        progressBar = findViewById(R.id.progressBar)
+        progressBar.visibility = VISIBLE
     }
 
 
