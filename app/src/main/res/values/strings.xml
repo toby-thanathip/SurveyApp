@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">SurveyApp</string>
+    <string name="survey_background">survey_background</string>
 </resources>
