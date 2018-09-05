@@ -2,6 +2,7 @@ package nimbl3.surveyapp.controller
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.design.widget.TabLayout
 import android.support.v4.view.ViewPager
 import android.util.Log
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -15,6 +16,7 @@ class SurveyIndexActivity : AppCompatActivity() {
     private lateinit var apiService : SurveyApiService
     private lateinit var pagerAdapter: SurveysPagerAdapter
     private lateinit var viewPager: ViewPager
+    private lateinit var tabLayout: TabLayout
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -45,7 +47,9 @@ class SurveyIndexActivity : AppCompatActivity() {
 
     private fun init() {
         apiService = SurveyApiService.create()
-        viewPager = findViewById(R.id.viewPager)
+        viewPager = findViewById(R.id.view_pager)
+        tabLayout = findViewById(R.id.tab_layout)
+        tabLayout.setupWithViewPager(viewPager, true)
     }
 
 
