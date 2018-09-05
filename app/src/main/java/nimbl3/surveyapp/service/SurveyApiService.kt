@@ -20,12 +20,12 @@ interface SurveyApiService {
     fun getToken(@Query("grant_type") grant_type: String, @Query("username") username: String, @Query("password") password: String) : Observable<Token>
 
     companion object Factory {
-        val base_url = "https://nimbl3-survey-api.herokuapp.com/"
+        val BASE_URL = "https://nimbl3-survey-api.herokuapp.com/"
         fun create(): SurveyApiService {
             val retrofit = Retrofit.Builder()
                     .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                     .addConverterFactory(GsonConverterFactory.create())
-                    .baseUrl(base_url)
+                    .baseUrl(BASE_URL)
                     .build()
 
             return retrofit.create(SurveyApiService::class.java)

@@ -2,6 +2,7 @@
 <android.support.constraint.ConstraintLayout
 xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
 android:layout_height="match_parent">
 
@@ -10,8 +11,10 @@ android:layout_height="match_parent">
         android:id="@+id/survey_background"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:contentDescription="@string/survey_background"
         android:scaleType="centerCrop"
-        android:contentDescription="@string/survey_background" />
+        tools:layout_editor_absoluteX="108dp"
+        tools:layout_editor_absoluteY="360dp" />
 
     <TextView
         android:id="@+id/survey_title"
@@ -34,7 +37,6 @@ android:layout_height="match_parent">
         android:id="@+id/survey_description"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="292dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
@@ -42,11 +44,27 @@ android:layout_height="match_parent">
         android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="15sp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/survey_title"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/survey_title" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/button_rounded"
+        android:text="@string/take_the_survey"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/survey_description"
+        app:layout_constraintVertical_bias="0.832" />
 
 
 </android.support.constraint.ConstraintLayout>
