@@ -20,6 +20,8 @@ import nimbl3.surveyapp.view.fragment.viewpager.SurveysPagerAdapter
 //       TODO SENSITIVE DATA
 //       TODO MOVE PAGER ADAPTER to init() ?
 //       TODO MAKE VIEW VERTICAL
+//       TODO SHOW ERROR IF FAILED IMAGE? + DIFFERENT PLACEHOLDER
+
 
 class SurveyIndexActivity : AppCompatActivity() {
 
