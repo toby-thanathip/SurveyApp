@@ -70,6 +70,8 @@ class SurveyIndexActivity : AppCompatActivity() {
 
         toolbar.setNavigationIcon(R.drawable.ic_refresh)
         setSupportActionBar(toolbar)
+        supportActionBar?.title = ""
+
     }
 
 
