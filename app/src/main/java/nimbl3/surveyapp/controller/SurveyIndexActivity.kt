@@ -16,6 +16,12 @@ import nimbl3.surveyapp.R
 import nimbl3.surveyapp.service.SurveyApiService
 import nimbl3.surveyapp.view.fragment.viewpager.SurveysPagerAdapter
 
+//       TODO ONLY GENERATE NEW TOKEN IF EXPIRED
+//       TODO SENSITIVE DATA
+//       TODO VIEWPAGER GETS RESET , WRONG LIFECYCLE?
+//       TODO MOVE PAGER ADAPTER to init() ?
+//       TODO MAKE VIEW VERTICAL
+
 class SurveyIndexActivity : AppCompatActivity() {
 
     private lateinit var apiService : SurveyApiService
@@ -34,23 +40,7 @@ class SurveyIndexActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
-
-//       TODO ONLY GENERATE NEW TOKEN IF EXPIRED
-//       TODO SENSITIVE DATA
-        apiService.getToken("password", "carlos@nimbl3.com", "antikera")
-                .flatMap { result ->
-                    apiService.getSurveys("Bearer ${result.access_token}", 1,20)
-                }
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribeOn(Schedulers.io())
-                .subscribe ({ result ->
-                    pagerAdapter = SurveysPagerAdapter(supportFragmentManager, result)
-                    viewPager.adapter = pagerAdapter
-                    progressBar.visibility = INVISIBLE
-                    Log.d("NIMBL3LOG", "There are ${result.size} surveys")
-                }, { error ->
-                    Log.e("NIMBL3LOG", error.toString())
-                })
+        fetchSurveys()
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -66,12 +56,33 @@ class SurveyIndexActivity : AppCompatActivity() {
         tabLayout = findViewById(R.id.tab_layout)
         tabLayout.setupWithViewPager(viewPager, true)
         progressBar = findViewById(R.id.progressBar)
-        progressBar.visibility = VISIBLE
 
-        toolbar.setNavigationIcon(R.drawable.ic_refresh)
         setSupportActionBar(toolbar)
+        toolbar.setNavigationIcon(R.drawable.ic_refresh)
+        toolbar.setNavigationOnClickListener {
+            fetchSurveys()
+        }
         supportActionBar?.title = ""
 
+        pagerAdapter = SurveysPagerAdapter(supportFragmentManager)
+        viewPager.adapter = pagerAdapter
+    }
+
+    private fun fetchSurveys() {
+        pagerAdapter.clear()
+        progressBar.visibility = VISIBLE
+        apiService.getToken("password", "carlos@nimbl3.com", "antikera")
+                .flatMap { result ->
+                    apiService.getSurveys("Bearer ${result.access_token}", 1,20)
+                }
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(Schedulers.io())
+                .subscribe ({ result ->
+                    pagerAdapter.refresh(result)
+                    progressBar.visibility = INVISIBLE
+                }, { error ->
+                    Log.e("NIMBL3LOG", error.toString())
+                })
     }
 
 
