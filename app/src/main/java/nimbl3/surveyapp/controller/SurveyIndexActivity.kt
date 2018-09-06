@@ -37,12 +37,9 @@ class SurveyIndexActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_survey_index)
         init()
-    }
-
-    override fun onResume() {
-        super.onResume()
         fetchSurveys()
     }
+
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.toolbar, menu)
