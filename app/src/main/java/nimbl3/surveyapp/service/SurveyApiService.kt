@@ -14,7 +14,7 @@ import retrofit2.http.Query
 interface SurveyApiService {
 
     @GET("surveys.json")
-    fun getSurveys(@Header("Authorization") acces_token: String, @Query("page") page: Int, @Query("per_page") perPage: Int): Observable<List<Survey>>
+    fun getSurveys(@Header("Authorization") acces_token: String, @Query("page") page: Int, @Query("per_page") perPage: Int): Observable<ArrayList<Survey>>
 
     @POST("oauth/token")
     fun getToken(@Query("grant_type") grant_type: String, @Query("username") username: String, @Query("password") password: String) : Observable<Token>
