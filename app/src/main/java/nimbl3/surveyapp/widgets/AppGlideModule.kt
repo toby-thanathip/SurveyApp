@@ -14,7 +14,9 @@ class AppGlideModule : AppGlideModule() {
     override fun applyOptions(context: Context?, builder: GlideBuilder?) {
         super.applyOptions(context, builder)
         val requestOptions = RequestOptions().centerCrop()
-                                             .placeholder(R.drawable.ic_launcher)
+                                             .placeholder(R.drawable.ic_time)
+
+
 
         builder?.setDefaultRequestOptions(requestOptions)
 
