@@ -18,7 +18,6 @@ import nimbl3.surveyapp.view.fragment.viewpager.SurveysPagerAdapter
 
 //       TODO ONLY GENERATE NEW TOKEN IF EXPIRED
 //       TODO SENSITIVE DATA
-//       TODO VIEWPAGER GETS RESET , WRONG LIFECYCLE?
 //       TODO MOVE PAGER ADAPTER to init() ?
 //       TODO MAKE VIEW VERTICAL
 
