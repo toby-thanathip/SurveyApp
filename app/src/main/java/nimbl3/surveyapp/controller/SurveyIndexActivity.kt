@@ -52,18 +52,23 @@ class SurveyIndexActivity : AppCompatActivity() {
         progressBar = findViewById(R.id.progressBar)
         indicator = findViewById(R.id.indicator)
 
+        initToolbar()
+        initViewPager()
+    }
 
+    private fun initToolbar(){
         setSupportActionBar(toolbar)
         toolbar.setNavigationIcon(R.drawable.ic_refresh)
         toolbar.setNavigationOnClickListener {
             fetchSurveys()
         }
         supportActionBar?.title = ""
+    }
 
+    private fun initViewPager() {
         pagerAdapter = SurveysPagerAdapter(supportFragmentManager)
         viewPager.adapter = pagerAdapter
         indicator.setViewPager(viewPager)
-        indicator.orientation = LinearLayout.VERTICAL
         pagerAdapter.registerDataSetObserver(indicator.dataSetObserver)
     }
 

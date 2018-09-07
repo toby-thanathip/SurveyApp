@@ -67,6 +67,7 @@
         app:ci_margin="7dp"
         app:ci_orientation="vertical"
         app:ci_width="8dp"
+        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="@+id/view_pager"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/view_pager" />
