@@ -84,6 +84,8 @@ class SurveyIndexActivity : AppCompatActivity() {
                     pagerAdapter.refresh(result)
                     progressBar.visibility = INVISIBLE
                 }, { error ->
+
+
                     Log.e("NIMBL3LOG", error.toString())
                 })
     }
