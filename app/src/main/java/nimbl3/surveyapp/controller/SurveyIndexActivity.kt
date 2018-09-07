@@ -9,6 +9,7 @@ import android.view.Menu
 import android.view.View.INVISIBLE
 import android.view.View.VISIBLE
 import android.widget.ProgressBar
+import android.widget.Toast
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import me.relex.circleindicator.CircleIndicator
@@ -84,9 +85,7 @@ class SurveyIndexActivity : AppCompatActivity() {
                     pagerAdapter.refresh(result)
                     progressBar.visibility = INVISIBLE
                 }, { error ->
-
-
-                    Log.e("NIMBL3LOG", error.toString())
+                    Toast.makeText(this@SurveyIndexActivity, error.toString(), Toast.LENGTH_SHORT).show()
                 })
     }
 
