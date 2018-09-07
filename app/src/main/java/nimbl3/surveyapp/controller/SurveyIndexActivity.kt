@@ -8,7 +8,6 @@ import android.util.Log
 import android.view.Menu
 import android.view.View.INVISIBLE
 import android.view.View.VISIBLE
-import android.widget.LinearLayout
 import android.widget.ProgressBar
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
