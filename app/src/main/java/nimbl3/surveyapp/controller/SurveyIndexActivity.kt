@@ -4,7 +4,6 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v4.view.ViewPager
 import android.support.v7.widget.Toolbar
-import android.util.Log
 import android.view.Menu
 import android.view.View.INVISIBLE
 import android.view.View.VISIBLE
@@ -19,6 +18,7 @@ import nimbl3.surveyapp.view.fragment.viewpager.SurveysPagerAdapter
 
 //       TODO ONLY GENERATE NEW TOKEN IF EXPIRED
 //       TODO SENSITIVE DATA
+//       TODO is my service really singleton?
 //       TODO MAKE VIEWPAGER INFINITE
 
 class SurveyIndexActivity : AppCompatActivity() {
@@ -88,6 +88,4 @@ class SurveyIndexActivity : AppCompatActivity() {
                     Toast.makeText(this@SurveyIndexActivity, error.toString(), Toast.LENGTH_SHORT).show()
                 })
     }
-
-
 }

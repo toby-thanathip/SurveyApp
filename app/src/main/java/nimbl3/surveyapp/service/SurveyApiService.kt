@@ -3,6 +3,7 @@ package nimbl3.surveyapp.service
 import io.reactivex.Observable
 import nimbl3.surveyapp.model.Survey
 import nimbl3.surveyapp.model.Token
+import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
@@ -21,8 +22,16 @@ interface SurveyApiService {
 
     companion object Factory {
         private const val BASE_URL = "https://nimbl3-survey-api.herokuapp.com/"
+
+
         fun create(): SurveyApiService {
+
+
+            val authenticator = TokenAuthenticator()
+            val okHttpClient = OkHttpClient.Builder()
+
             val retrofit = Retrofit.Builder()
+//                    .client(OkHttpClient(okHttpClient.authenticator(authenticator)))
                     .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                     .addConverterFactory(GsonConverterFactory.create())
                     .baseUrl(BASE_URL)
