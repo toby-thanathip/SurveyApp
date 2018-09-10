@@ -1,12 +1,10 @@
-package nimbl3.surveyapp.view.fragment.viewpager
+package nimbl3.surveyapp.view
 
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentPagerAdapter
 import android.support.v4.view.PagerAdapter
-import android.util.Log
 import nimbl3.surveyapp.model.Survey
-import nimbl3.surveyapp.view.fragment.SurveyFragment
 
 class SurveysPagerAdapter(fragmentManager: FragmentManager) : FragmentPagerAdapter(fragmentManager) {
 

@@ -16,7 +16,6 @@ class TokenAuthenticator : Authenticator {
 //            true -> response?.request()?.newBuilder()?.header("Authorization", "Bearer ${newPostResponse.body()!!.access_token}")?.build()
 //            false -> null
 //        }
-
             if(newPostResponse.isSuccessful) {
                 Log.d("FCK", newPostResponse.body()!!.access_token)
                 return response.request()?.newBuilder()?.header("Authorization", "Bearer ${newPostResponse.body()!!.access_token}")?.build()
@@ -27,5 +26,9 @@ class TokenAuthenticator : Authenticator {
             return null
         }
 
+
     }
+
+
+
 }

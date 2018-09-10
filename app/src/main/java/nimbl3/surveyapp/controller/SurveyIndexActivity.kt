@@ -14,13 +14,10 @@ import io.reactivex.schedulers.Schedulers
 import me.relex.circleindicator.CircleIndicator
 import nimbl3.surveyapp.R
 import nimbl3.surveyapp.service.RepositoryProvider
-import nimbl3.surveyapp.view.fragment.viewpager.SurveysPagerAdapter
+import nimbl3.surveyapp.view.SurveysPagerAdapter
 
-//       TODO ONLY GENERATE NEW TOKEN IF EXPIRED
 //       TODO 3 retries..
-
 //       TODO SENSITIVE DATA
-//       TODO is my service really singleton?
 //       TODO MAKE VIEWPAGER INFINITE
 
 class SurveyIndexActivity : AppCompatActivity() {
