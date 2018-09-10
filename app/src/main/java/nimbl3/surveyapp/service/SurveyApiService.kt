@@ -24,13 +24,9 @@ interface SurveyApiService {
 
     companion object Factory {
         private const val BASE_URL = "https://nimbl3-survey-api.herokuapp.com/"
-
-
         fun create(): SurveyApiService {
-
             val authenticator = TokenAuthenticator()
             val okHttpClient = OkHttpClient.Builder()
-
             val retrofit = Retrofit.Builder()
                     .client(okHttpClient.authenticator(authenticator).build())
                     .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
