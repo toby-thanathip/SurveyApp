@@ -13,17 +13,19 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import me.relex.circleindicator.CircleIndicator
 import nimbl3.surveyapp.R
-import nimbl3.surveyapp.service.SurveyApiService
+import nimbl3.surveyapp.service.RepositoryProvider
 import nimbl3.surveyapp.view.fragment.viewpager.SurveysPagerAdapter
 
 //       TODO ONLY GENERATE NEW TOKEN IF EXPIRED
+//       TODO 3 retries..
+
 //       TODO SENSITIVE DATA
 //       TODO is my service really singleton?
 //       TODO MAKE VIEWPAGER INFINITE
 
 class SurveyIndexActivity : AppCompatActivity() {
 
-    private lateinit var apiService : SurveyApiService
+    private val apiService = RepositoryProvider.provideRepository()
     private lateinit var pagerAdapter: SurveysPagerAdapter
     private lateinit var viewPager: ViewPager
     private lateinit var progressBar : ProgressBar
@@ -45,8 +47,6 @@ class SurveyIndexActivity : AppCompatActivity() {
     }
 
     private fun init() {
-        apiService = SurveyApiService.create()
-
         toolbar = findViewById(R.id.toolbar)
         viewPager = findViewById(R.id.view_pager)
         progressBar = findViewById(R.id.progressBar)
@@ -58,9 +58,11 @@ class SurveyIndexActivity : AppCompatActivity() {
 
     private fun initToolbar(){
         setSupportActionBar(toolbar)
-        toolbar.setNavigationIcon(R.drawable.ic_refresh)
-        toolbar.setNavigationOnClickListener {
-            fetchSurveys()
+        toolbar.apply {
+            setNavigationIcon(R.drawable.ic_refresh)
+            setNavigationOnClickListener {
+                fetchSurveys()
+            }
         }
         supportActionBar?.title = ""
     }
@@ -75,10 +77,8 @@ class SurveyIndexActivity : AppCompatActivity() {
     private fun fetchSurveys() {
         pagerAdapter.clear()
         progressBar.visibility = VISIBLE
-        apiService.getToken("password", "carlos@nimbl3.com", "antikera")
-                .flatMap { result ->
-                    apiService.getSurveys("Bearer ${result.access_token}", 1,20)
-                }
+
+        apiService.getSurveys("Bearer b86386561c61b764e0c02363f7a585e6f6b7262a42dd0a203a03f211765c362b",1,20)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
                 .subscribe ({ result ->
