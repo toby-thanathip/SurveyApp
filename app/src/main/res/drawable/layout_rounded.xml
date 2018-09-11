@@ -7,7 +7,7 @@
 
     <solid android:color="@color/nimbleDark" />
 
-    <corners android:radius="10dp" />
+    <corners android:radius="5dp" />
 
     <padding
         android:left="20dp"
