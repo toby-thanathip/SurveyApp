@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v4.view.ViewPager
 import android.support.v7.widget.Toolbar
+import android.util.Log
 import android.view.Menu
 import android.view.View.INVISIBLE
 import android.view.View.VISIBLE
@@ -13,7 +14,9 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import me.relex.circleindicator.CircleIndicator
 import nimbl3.surveyapp.R
+import nimbl3.surveyapp.model.Survey
 import nimbl3.surveyapp.service.RepositoryProvider
+import nimbl3.surveyapp.service.SurveyApiService
 import nimbl3.surveyapp.view.SurveysPagerAdapter
 import nimbl3.surveyapp.widgets.KeyStorage
 
@@ -68,16 +71,25 @@ class SurveyIndexActivity : AppCompatActivity() {
     }
 
     private fun fetchSurveys() {
-        pagerAdapter.clear()
-        progressBar.visibility = VISIBLE
+        beforeFetch()
         apiService.getSurveys("Bearer ${KeyStorage.showString("authToken")}",1,20)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
                 .subscribe ({ result ->
-                    pagerAdapter.refresh(result)
-                    progressBar.visibility = INVISIBLE
+                    afterFetch(result)
                 }, { error ->
                     Toast.makeText(this@SurveyIndexActivity, error.toString(), Toast.LENGTH_SHORT).show()
                 })
+    }
+
+    private fun beforeFetch() {
+        SurveyApiService.cancelRequests()
+        pagerAdapter.clear()
+        progressBar.visibility = VISIBLE
+    }
+
+    private fun afterFetch(result : ArrayList<Survey>) {
+        pagerAdapter.refresh(result)
+        progressBar.visibility = INVISIBLE
     }
 }
