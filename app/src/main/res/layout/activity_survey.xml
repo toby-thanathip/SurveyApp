@@ -7,7 +7,7 @@
     tools:context=".controller.SurveyActivity">
 
 
-    <TextView
+    <nimbl3.surveyapp.view.CustomTextView
         android:id="@+id/business_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
