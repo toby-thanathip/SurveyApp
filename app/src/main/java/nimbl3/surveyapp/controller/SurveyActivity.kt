@@ -15,7 +15,7 @@ class SurveyActivity : AppCompatActivity() {
         init()
     }
 
-    fun init() {
+    private fun init() {
         businessName = findViewById(R.id.business_name)
         businessName.text = intent.getStringExtra("SURVEY_TITLE")
     }

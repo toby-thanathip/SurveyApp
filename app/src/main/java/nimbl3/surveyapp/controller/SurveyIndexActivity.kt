@@ -4,26 +4,22 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v4.view.ViewPager
 import android.support.v7.widget.Toolbar
-import android.util.Log
 import android.view.Menu
 import android.view.View.INVISIBLE
 import android.view.View.VISIBLE
-import android.widget.LinearLayout
 import android.widget.ProgressBar
+import android.widget.Toast
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import me.relex.circleindicator.CircleIndicator
 import nimbl3.surveyapp.R
-import nimbl3.surveyapp.service.SurveyApiService
-import nimbl3.surveyapp.view.fragment.viewpager.SurveysPagerAdapter
-
-//       TODO ONLY GENERATE NEW TOKEN IF EXPIRED
-//       TODO SENSITIVE DATA
-//       TODO MAKE VIEWPAGER INFINITE
+import nimbl3.surveyapp.service.RepositoryProvider
+import nimbl3.surveyapp.view.SurveysPagerAdapter
+import nimbl3.surveyapp.widgets.KeyStorage
 
 class SurveyIndexActivity : AppCompatActivity() {
 
-    private lateinit var apiService : SurveyApiService
+    private val apiService = RepositoryProvider.provideRepository()
     private lateinit var pagerAdapter: SurveysPagerAdapter
     private lateinit var viewPager: ViewPager
     private lateinit var progressBar : ProgressBar
@@ -38,15 +34,12 @@ class SurveyIndexActivity : AppCompatActivity() {
         fetchSurveys()
     }
 
-
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.toolbar, menu)
         return true
     }
 
     private fun init() {
-        apiService = SurveyApiService.create()
-
         toolbar = findViewById(R.id.toolbar)
         viewPager = findViewById(R.id.view_pager)
         progressBar = findViewById(R.id.progressBar)
@@ -58,9 +51,11 @@ class SurveyIndexActivity : AppCompatActivity() {
 
     private fun initToolbar(){
         setSupportActionBar(toolbar)
-        toolbar.setNavigationIcon(R.drawable.ic_refresh)
-        toolbar.setNavigationOnClickListener {
-            fetchSurveys()
+        toolbar.apply {
+            setNavigationIcon(R.drawable.ic_refresh)
+            setNavigationOnClickListener {
+                fetchSurveys()
+            }
         }
         supportActionBar?.title = ""
     }
@@ -75,19 +70,14 @@ class SurveyIndexActivity : AppCompatActivity() {
     private fun fetchSurveys() {
         pagerAdapter.clear()
         progressBar.visibility = VISIBLE
-        apiService.getToken("password", "carlos@nimbl3.com", "antikera")
-                .flatMap { result ->
-                    apiService.getSurveys("Bearer ${result.access_token}", 1,20)
-                }
+        apiService.getSurveys("Bearer ${KeyStorage.showString("authToken")}",1,20)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
                 .subscribe ({ result ->
                     pagerAdapter.refresh(result)
                     progressBar.visibility = INVISIBLE
                 }, { error ->
-                    Log.e("NIMBL3LOG", error.toString())
+                    Toast.makeText(this@SurveyIndexActivity, error.toString(), Toast.LENGTH_SHORT).show()
                 })
     }
-
-
 }
