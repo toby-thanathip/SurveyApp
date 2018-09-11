@@ -15,6 +15,7 @@ import me.relex.circleindicator.CircleIndicator
 import nimbl3.surveyapp.R
 import nimbl3.surveyapp.service.RepositoryProvider
 import nimbl3.surveyapp.view.SurveysPagerAdapter
+import nimbl3.surveyapp.widgets.KeyStorage
 
 //       TODO 3 retries..
 //       TODO SENSITIVE DATA
@@ -74,8 +75,7 @@ class SurveyIndexActivity : AppCompatActivity() {
     private fun fetchSurveys() {
         pagerAdapter.clear()
         progressBar.visibility = VISIBLE
-
-        apiService.getSurveys("Bearer b86386561c61b764e0c02363f7a585e6f6b7262a42dd0a203a03f211765c362b",1,20)
+        apiService.getSurveys("Bearer ${KeyStorage.showString("authToken")}",1,20)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
                 .subscribe ({ result ->

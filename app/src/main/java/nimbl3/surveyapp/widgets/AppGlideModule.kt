@@ -13,8 +13,7 @@ class AppGlideModule : AppGlideModule() {
 
     override fun applyOptions(context: Context?, builder: GlideBuilder?) {
         super.applyOptions(context, builder)
-        val requestOptions = RequestOptions().centerCrop()
-                                             .error(R.drawable.ic_close)
+        val requestOptions = RequestOptions().centerCrop().error(R.drawable.ic_close)
         builder?.setDefaultRequestOptions(requestOptions)
     }
 }
