@@ -17,10 +17,4 @@ object KeyStorage {
         return pref.getString(name, "")
     }
 
-    fun removeString(name: String) {
-        val pref = App.applicationContext().getSharedPreferences("my_preferences", MODE_PRIVATE)
-        val editor = pref.edit()
-        editor.remove(name)
-        editor.apply()
-    }
 }

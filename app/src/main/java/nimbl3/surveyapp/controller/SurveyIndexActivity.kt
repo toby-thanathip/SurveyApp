@@ -38,7 +38,6 @@ class SurveyIndexActivity : AppCompatActivity() {
         fetchSurveys()
     }
 
-
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.toolbar, menu)
         return true

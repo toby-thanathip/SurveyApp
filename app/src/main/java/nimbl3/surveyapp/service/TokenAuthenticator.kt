@@ -11,8 +11,9 @@ class TokenAuthenticator : Authenticator {
         val apiService = RepositoryProvider.provideRepository()
         val newPostResponse= apiService.getToken("password", "carlos@nimbl3.com", "antikera").execute()
         if(newPostResponse.isSuccessful) {
-            KeyStorage.saveString("authToken", newPostResponse.body()!!.access_token)
-            return response?.request()?.newBuilder()?.header("Authorization", "Bearer ${newPostResponse.body()!!.access_token}")?.build()
+            val accessToken = newPostResponse.body()!!.access_token
+            KeyStorage.saveString("authToken", accessToken)
+            return response?.request()?.newBuilder()?.header("Authorization", accessToken)?.build()
         }
         return null
     }
