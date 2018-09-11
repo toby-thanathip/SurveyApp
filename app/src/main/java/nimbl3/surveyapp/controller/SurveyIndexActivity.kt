@@ -18,7 +18,6 @@ import nimbl3.surveyapp.view.SurveysPagerAdapter
 import nimbl3.surveyapp.widgets.KeyStorage
 
 //       TODO 3 retries..
-//       TODO SENSITIVE DATA
 //       TODO MAKE VIEWPAGER INFINITE
 
 class SurveyIndexActivity : AppCompatActivity() {
