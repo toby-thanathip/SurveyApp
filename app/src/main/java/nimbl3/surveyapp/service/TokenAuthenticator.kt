@@ -18,7 +18,7 @@ class TokenAuthenticator : Authenticator {
         if(newPostResponse.isSuccessful) {
             val accessToken = newPostResponse.body()!!.access_token
             KeyStorage.saveString("authToken", accessToken)
-            return response?.request()?.newBuilder()?.header("Authorization", accessToken)?.build()
+            return response?.request()?.newBuilder()?.header("Authorization", "Bearer $accessToken")?.build()
         }
         return null
     }
