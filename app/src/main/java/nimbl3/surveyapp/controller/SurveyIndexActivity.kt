@@ -12,12 +12,15 @@ import android.widget.Toast
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import me.relex.circleindicator.CircleIndicator
+import nimbl3.surveyapp.AUTH_TOKEN
+import nimbl3.surveyapp.BEARER
 import nimbl3.surveyapp.R
 import nimbl3.surveyapp.model.Survey
 import nimbl3.surveyapp.service.RepositoryProvider
 import nimbl3.surveyapp.service.SurveyApiService
 import nimbl3.surveyapp.view.SurveysPagerAdapter
 import nimbl3.surveyapp.widgets.KeyStorage
+
 
 class SurveyIndexActivity : AppCompatActivity() {
 
@@ -71,7 +74,7 @@ class SurveyIndexActivity : AppCompatActivity() {
 
     private fun fetchSurveys() {
         beforeFetch()
-        apiService.getSurveys("Bearer ${KeyStorage.showString("authToken")}",1,20)
+        apiService.getSurveys("$BEARER ${KeyStorage.showString(AUTH_TOKEN)}",1,20)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
                 .subscribe ({ result ->
