@@ -8,7 +8,7 @@
 
 
     <nimbl3.surveyapp.view.CustomTextView
-        android:id="@+id/business_name"
+        android:id="@+id/businessName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
