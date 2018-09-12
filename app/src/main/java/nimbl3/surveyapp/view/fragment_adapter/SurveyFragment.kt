@@ -1,4 +1,4 @@
-package nimbl3.surveyapp.view
+package nimbl3.surveyapp.view.fragment_adapter
 
 import android.content.Intent
 import android.os.Bundle

@@ -14,10 +14,10 @@ import io.reactivex.schedulers.Schedulers
 import me.relex.circleindicator.CircleIndicator
 import nimbl3.surveyapp.R
 import nimbl3.surveyapp.model.Survey
-import nimbl3.surveyapp.service.RepositoryProvider
+import nimbl3.surveyapp.db.repository.RepositoryProvider
 import nimbl3.surveyapp.service.SurveyApiService
-import nimbl3.surveyapp.view.SurveysPagerAdapter
-import nimbl3.surveyapp.widgets.KeyStorage
+import nimbl3.surveyapp.view.fragment_adapter.SurveysPagerAdapter
+import nimbl3.surveyapp.db.storage.KeyStorage
 
 class SurveyIndexActivity : AppCompatActivity() {
 

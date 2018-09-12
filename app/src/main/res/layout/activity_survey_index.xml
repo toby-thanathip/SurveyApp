@@ -26,7 +26,7 @@
 
     </android.support.v7.widget.Toolbar>
 
-    <nimbl3.surveyapp.view.VerticalViewPager
+    <nimbl3.surveyapp.view.custom_views.VerticalViewPager
         android:id="@+id/view_pager"
         android:layout_width="match_parent"
         android:layout_height="0dp"

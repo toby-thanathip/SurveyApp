@@ -1,6 +1,8 @@
-package nimbl3.surveyapp.model
+package nimbl3.surveyapp.db.repository
 
 import io.reactivex.Observable
+import nimbl3.surveyapp.model.Survey
+import nimbl3.surveyapp.model.Token
 import nimbl3.surveyapp.service.SurveyApiService
 import retrofit2.Call
 

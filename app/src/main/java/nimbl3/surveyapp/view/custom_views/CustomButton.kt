@@ -1,4 +1,4 @@
-package nimbl3.surveyapp.view
+package nimbl3.surveyapp.view.custom_views
 
 import android.content.Context
 import android.graphics.Typeface

@@ -1,4 +1,4 @@
-package nimbl3.surveyapp.controller
+package nimbl3.surveyapp
 
 import android.app.Application
 

@@ -1,7 +1,7 @@
-package nimbl3.surveyapp.widgets
+package nimbl3.surveyapp.db.storage
 
 import android.content.Context.MODE_PRIVATE
-import nimbl3.surveyapp.controller.App
+import nimbl3.surveyapp.App
 
 object KeyStorage {
 
