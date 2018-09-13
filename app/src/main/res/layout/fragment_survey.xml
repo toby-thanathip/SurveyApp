@@ -8,7 +8,7 @@ android:layout_height="match_parent">
 
 
     <ImageView
-        android:id="@+id/survey_background"
+        android:id="@+id/surveyBackground"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:contentDescription="@string/survey_background"
@@ -30,8 +30,8 @@ android:layout_height="match_parent">
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <nimbl3.surveyapp.view.custom_views.CustomTextView
-            android:id="@+id/survey_title"
+        <nimbl3.surveyapp.view.customviews.CustomTextView
+            android:id="@+id/surveyTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingBottom="2.5dp"
@@ -46,8 +46,8 @@ android:layout_height="match_parent">
             app:layout_constraintHorizontal_bias="0.501" />
 
 
-        <nimbl3.surveyapp.view.custom_views.CustomTextView
-            android:id="@+id/survey_description"
+        <nimbl3.surveyapp.view.customviews.CustomTextView
+            android:id="@+id/surveyDescription"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
@@ -63,8 +63,8 @@ android:layout_height="match_parent">
 
     </LinearLayout>
 
-    <nimbl3.surveyapp.view.custom_views.CustomButton
-        android:id="@+id/survey_btn"
+    <nimbl3.surveyapp.view.customviews.CustomButton
+        android:id="@+id/surveyBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="32dp"
