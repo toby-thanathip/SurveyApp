@@ -11,7 +11,7 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import nimbl3.surveyapp.R
 import nimbl3.surveyapp.model.Survey
-import nimbl3.surveyapp.db.repository.RepositoryProvider
+import nimbl3.surveyapp.service.repository.RepositoryProvider
 import nimbl3.surveyapp.service.SurveyApiService
 import kotlinx.android.synthetic.main.activity_survey_index.*
 import nimbl3.surveyapp.db.storage.KeyStorage

@@ -3,6 +3,7 @@ package nimbl3.surveyapp.service
 import io.reactivex.Observable
 import nimbl3.surveyapp.model.Survey
 import nimbl3.surveyapp.model.Token
+import nimbl3.surveyapp.service.authentication.TokenAuthenticator
 import okhttp3.Dispatcher
 import okhttp3.OkHttpClient
 import retrofit2.Call
