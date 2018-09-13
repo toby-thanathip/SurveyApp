@@ -11,11 +11,11 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import nimbl3.surveyapp.R
 import nimbl3.surveyapp.model.Survey
-import nimbl3.surveyapp.service.RepositoryProvider
+import nimbl3.surveyapp.db.repository.RepositoryProvider
 import nimbl3.surveyapp.service.SurveyApiService
-import nimbl3.surveyapp.view.SurveysPagerAdapter
-import nimbl3.surveyapp.widgets.KeyStorage
 import kotlinx.android.synthetic.main.activity_survey_index.*
+import nimbl3.surveyapp.db.storage.KeyStorage
+import nimbl3.surveyapp.view.fragmentadapter.SurveysPagerAdapter
 
 class SurveyIndexActivity : AppCompatActivity() {
 

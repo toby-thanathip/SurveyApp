@@ -1,8 +1,9 @@
 package nimbl3.surveyapp.service
 
 import nimbl3.surveyapp.R
-import nimbl3.surveyapp.controller.App
-import nimbl3.surveyapp.widgets.KeyStorage
+import nimbl3.surveyapp.App
+import nimbl3.surveyapp.db.storage.KeyStorage
+import nimbl3.surveyapp.db.repository.RepositoryProvider
 import okhttp3.Authenticator
 import okhttp3.Request
 import okhttp3.Response

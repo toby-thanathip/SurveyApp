@@ -30,7 +30,7 @@ android:layout_height="match_parent">
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <nimbl3.surveyapp.view.CustomTextView
+        <nimbl3.surveyapp.view.customviews.CustomTextView
             android:id="@+id/surveyTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -46,7 +46,7 @@ android:layout_height="match_parent">
             app:layout_constraintHorizontal_bias="0.501" />
 
 
-        <nimbl3.surveyapp.view.CustomTextView
+        <nimbl3.surveyapp.view.customviews.CustomTextView
             android:id="@+id/surveyDescription"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -63,7 +63,7 @@ android:layout_height="match_parent">
 
     </LinearLayout>
 
-    <nimbl3.surveyapp.view.CustomButton
+    <nimbl3.surveyapp.view.customviews.CustomButton
         android:id="@+id/surveyBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

@@ -1,4 +1,4 @@
-package nimbl3.surveyapp.view
+package nimbl3.surveyapp.view.customviews
 
 import android.content.Context
 import android.view.MotionEvent
