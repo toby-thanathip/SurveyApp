@@ -14,7 +14,7 @@ jobs:
         ref: ${{ github.ref }}
     - uses: docker://decathlon/wiki-page-creator-action:latest
       env:
-        GH_PAT: ${{ secrets.WIKI_ACTION_TOKEN }}
+        GH_PAT: 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
         ACTION_MAIL: tuubz.heuts@gmail.com
         ACTION_NAME: Tuubz
         OWNER: Tuubz
