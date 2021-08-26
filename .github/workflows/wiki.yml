@@ -1,0 +1,23 @@
+name: Publish wiki
+
+on:
+  push:
+    branches:
+      - develop
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        ref: ${{ github.ref }}
+    - uses: Decathlon/wiki-page-creator-action@v2.0.0
+      env:
+        GH_PAT: ${{ secrets.WIKI_ACTION_TOKEN }}
+        ACTION_MAIL: tuubz.heuts@gmail.com
+        ACTION_NAME: Tuubz
+        OWNER: Tuubz
+        REPO_NAME: SurveyApp
+        MD_FOLDER: .github/wiki
+        WIKI_PUSH_MESSAGE: Push from Github action
