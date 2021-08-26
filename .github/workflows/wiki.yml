@@ -9,10 +9,10 @@ jobs:
   publish:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-      with:
-        ref: ${{ github.ref }}
-    - uses: Decathlon/wiki-page-creator-action@v2.0.0
+#     - uses: actions/checkout@v2
+#       with:
+#         ref: ${{ github.ref }}
+    - uses: docker://decathlon/wiki-page-creator-action:latest
       env:
         GH_PAT: ${{ secrets.WIKI_ACTION_TOKEN }}
         ACTION_MAIL: tuubz.heuts@gmail.com
